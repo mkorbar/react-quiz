@@ -1,0 +1,41 @@
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+#root > div {
+    max-width: 400px;
+}
+
+header {
+    margin: 1em 0;
+}
+p {
+    text-align: center;
+    margin: 3em 0;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin: 1em 0;
+}
+.code {
+    font-family: monospace;
+    font-size: 0.7em;
+    margin-bottom: 3em;
+    margin-top: 2em;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}
+#deleteGame {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    margin: 0;
+    width: auto;
+}
