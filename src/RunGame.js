@@ -4,7 +4,7 @@ import FinishedGame from "./FinishedGame";
 import React, { useState } from "react";
 import { shuffleArray } from "./utils";
 
-const DEFAULT_QUESTION_LIMIT = 5;
+const DEFAULT_QUESTION_LIMIT = 10;
 
 const RunGame = (params) => {
   const questionLimit =

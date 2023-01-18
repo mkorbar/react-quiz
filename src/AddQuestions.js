@@ -15,11 +15,32 @@ const AddQuestions = (params) => {
   function saveQuestions(e) {
     e.preventDefault();
     const csvText = e.target[0].value;
+    parseAndSetQuestions(csvText);
+  }
+
+  function parseAndSetQuestions(csvText) {
     const questions = parseCsvToQuestions(csvText);
     if (questions.length > 0) {
       localStorage.setItem("questions", JSON.stringify(questions));
       params.setQ(questions);
     }
+  }
+
+  async function selectPreset(file) {
+    let csvUrl = "";
+    switch (file) {
+      case "d.labs-tribes": {
+        csvUrl =
+          "https://raw.githubusercontent.com/mkorbar/react-quiz-data/main/d.labs-people-tribes.csv";
+        break;
+      }
+      default:
+        console.error("This file was not found");
+        return;
+    }
+    const res = await fetch(csvUrl);
+    const csvText = await res.text();
+    parseAndSetQuestions(csvText);
   }
 
   return (
@@ -36,6 +57,12 @@ const AddQuestions = (params) => {
       </div>
       <form onSubmit={(e) => saveQuestions(e)}>
         <textarea rows="8"></textarea>
+        <p className="selectPresent">
+          Or select one of preset games:{" "}
+          <button onClick={() => selectPreset("d.labs-tribes")}>
+            d.labs people in tribes
+          </button>
+        </p>
         <button type="submit">Save questions</button>
       </form>
     </div>
