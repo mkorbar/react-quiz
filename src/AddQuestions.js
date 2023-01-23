@@ -34,6 +34,11 @@ const AddQuestions = (params) => {
           "https://raw.githubusercontent.com/mkorbar/react-quiz-data/main/d.labs-people-tribes.csv";
         break;
       }
+      case "sweden": {
+        csvUrl =
+          "https://raw.githubusercontent.com/mkorbar/react-quiz-data/main/sweden-quiz.csv";
+        break;
+      }
       default:
         console.error("This file was not found");
         return;
@@ -62,6 +67,7 @@ const AddQuestions = (params) => {
           <button onClick={() => selectPreset("d.labs-tribes")}>
             d.labs people in tribes
           </button>
+          <button onClick={() => selectPreset("sweden")}>Sweden</button>
         </p>
         <button type="submit">Save questions</button>
       </form>
